@@ -1,0 +1,99 @@
+.frm-container{
+  width:calc(100% - 3em);
+  padding:1em;
+  margin: 0.5em;
+  border-top: 0.4em solid #3FC2F5;
+  border-left: 1px solid #DDE2DF;
+  border-right: 1px solid #DDE2DF;
+  border-bottom: 1px solid #DDE2DF;
+  height: auto;
+  float: left;
+  padding-bottom: 1em;
+ 
+}
+
+  .frm-container > .frm-container-header {
+    padding-left: 0.5em;
+    padding-top: 0.2em;
+    padding-right: 0.5em;
+    padding-bottom: 0.5em;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 1.1em;
+    border-bottom: 1px solid #DDE2DF;
+  }
+
+.frm-container > .frm-container-body{
+  
+  border-bottom: 1px solid #DDE2DF;
+  
+  padding-bottom: 1em;
+  float: left;
+  
+}
+
+  .frm-container > .frm-container-footer {
+  color:red;
+  float:left;
+ 
+    padding:0.5em;
+  }
+
+.controlplus {
+  /*
+  padding-left: 1em;
+  padding-right: 1em;*/
+  padding-top: 1em;
+}
+.controlplus label{
+  padding-left:1em;
+  font-weight: bold;
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  font-size: 0.8em;
+}
+
+  .controlplus textarea {
+    width: auto;
+    float: right;
+    width: calc(100% - 1em);
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    border: 1px solid #c1c1c1;
+    height: 3.2em;
+    padding: 0.5em;
+    color: gray;
+  }
+
+.ctl{
+  float: left;
+}
+
+.controlplus input {
+  width: auto;
+  float: right;
+  width: calc(100% - 1em);
+  border: 1px solid #c1c1c1;
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  height: 1.2em;
+  padding: 0.5em;
+  color: gray;
+}
+
+.controlplus select {
+  width: auto;
+  float: right;
+  width: calc(100% + 0.2em);
+  border: 1px solid #c1c1c1;
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  height: 2.5em;
+  padding: 0.5em;
+  color: gray;
+}
+
+.alerta {
+  font-size: 0.7em;
+  color: red;
+  margin-bottom: -2em;
+  float: left;
+}
+
+

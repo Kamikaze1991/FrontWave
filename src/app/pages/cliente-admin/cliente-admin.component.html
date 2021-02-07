@@ -1,0 +1,210 @@
+
+<app-nav-menu></app-nav-menu>
+
+
+<div class="container">
+  <div id="frm" class="cellspace">
+    <div class="ch">
+      <div class="tx">Administracion de Personal</div>
+    </div>
+    <form (submit)="actionSubmit($event)" id="frm_current" class="formspace">
+
+
+      <div class="frm-container">
+        <div class="frm-container-header">
+          Datos Personales
+        </div>
+        <div class="frm-container-body">
+          <div class="col-5">
+            <div class="controlplus">
+              <label class="col-3">Identificador</label>
+              <div class="ctl col-7">
+                <input type="text" id="identificador" name="identificador" [(ngModel)]="cliente.identificador" spellcheck="false" maxlength="100" autocomplete="off" required />
+              </div>
+            </div>
+          </div>
+          <div class="col-5">
+            <div class="controlplus">
+              <label class="col-3">Apodo</label>
+              <div class="ctl col-7">
+                <input type="text" id="apodo" name="apodo" [(ngModel)]="cliente.apodo" spellcheck="false" maxlength="100" autocomplete="off" required />
+              </div>
+            </div>
+          </div>
+          <div class="col-5">
+            <div class="controlplus">
+              <label class="col-3">Nombres</label>
+              <div class="ctl col-7">
+                <input type="text" id="nombre" name="nombre" [(ngModel)]="cliente.nombre" spellcheck="false" autocorrect="off" maxlength="100" autocomplete="off" required>
+              </div>
+            </div>
+          </div>
+          <div class="col-5">
+            <div class="controlplus">
+              <label class="col-3">Apellidos</label>
+              <div class="ctl col-7">
+                <input type="text" id="apellido" name="apellido" [(ngModel)]="cliente.apellido" spellcheck="false" maxlength="100" autocomplete="off" required>
+              </div>
+            </div>
+          </div>
+          <div class="col-5">
+            <div class="controlplus">
+              <label class="col-3">Tipo</label>
+              <div class="ctl col-7">
+                <input type="text" id="tipo" name="tipo" [(ngModel)]="cliente.tipo" spellcheck="false" maxlength="100" autocomplete="off" required>
+              </div>
+            </div>
+          </div>
+          <div class="col-5">
+            <div class="controlplus">
+              <label class="col-3">Telefono Principal</label>
+              <div class="ctl col-7">
+                <input type="text" id="telefono_principal" name="telefono_principal" [(ngModel)]="cliente.telefono_principal" spellcheck="false" maxlength="100" autocomplete="off" required>
+              </div>
+            </div>
+          </div>
+          <div class="col-5">
+            <div class="controlplus">
+              <label class="col-3">Telefono Secundario</label>
+              <div class="ctl col-7">
+                <input type="text" id="telefono_secundario" name="telefono_secundario" [(ngModel)]="cliente.telefono_secundario" spellcheck="false" maxlength="100" autocomplete="off" required>
+              </div>
+            </div>
+          </div>
+          <div class="col-5">
+            <div class="controlplus">
+              <label class="col-3">Direccion</label>
+              <div class="ctl col-7">
+                <input type="text" id="direccion" name="direccion" [(ngModel)]="cliente.direccion" spellcheck="false" maxlength="100" autocomplete="off" required>
+              </div>
+            </div>
+          </div>
+          <div class="col-5">
+            <div class="controlplus">
+              <label class="col-3">Latitud</label>
+              <div class="ctl col-7">
+                <input type="text" id="posx" name="posx" [(ngModel)]="cliente.posx" spellcheck="false" maxlength="100" autocomplete="off" required>
+              </div>
+            </div>
+          </div>
+          <div class="col-5">
+            <div class="controlplus">
+              <label class="col-3">Longitud</label>
+              <div class="ctl col-7">
+                <input type="text" id="posy" name="posy" [(ngModel)]="cliente.posy" spellcheck="false" maxlength="100" autocomplete="off" required>
+              </div>
+            </div>
+          </div>
+          <input type="hidden" id="posX" maxlength="100" autocomplete="off" required>
+          <input type="hidden" id="posY" maxlength="100" autocomplete="off" required>
+
+        </div>
+
+        <div class="frm-container-footer">
+          <button id="btn_save" type="submit" class="btn-info"><i class="fa fa-floppy-o" aria-hidden="true"></i> Guardar</button>
+          <button id="btn_clear" type="button" class="btn-normal"><i class="fa fa-file-o" aria-hidden="true"></i></button>
+        </div>
+
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <!--area de controles de accion-->
+      <div class="col-10 control-container-x">
+
+      </div>
+    </form>
+
+
+
+
+  </div>
+  <div id="frm" class="cellspace">
+    <div class="ch">
+      <div class="tx">Gestor de Informacion</div>
+    </div>
+    <div class="formspace">
+      <div class="frm-container">
+        <div class="frm-container-header">
+          Clientes
+        </div>
+        <div class="frm-container-body col-10">
+          <form id="frm_filtro" class="innercellspace col-10">
+
+            <div class="col-3">
+              <div class="control">
+                <label>Parametro de busqueda</label>
+                <input type="text" id="filtro" maxlength="100" autocomplete="off">
+                <span>Cedula de identidad, nombres o apellidos</span>
+              </div>
+            </div>
+
+
+            <button id="btn_proveedor_seek" type="submit" class="hidden"><i class="fa fa-hourglass-end" aria-hidden="true"></i></button>
+
+          </form>
+          <div class="col-10">
+            <div class="table-container">
+
+              <table id="tbl_result">
+                <thead>
+                  <tr>
+
+                    <th class="Rnombre" id="hnombre">nombre</th>
+                    <th class="Rapellido" id="hapellido">apellido</th>
+                    <th class="Rdireccion" id="hdireccion">direccion</th>
+                    <th class="Rcontroles" id="hcontroles">Controles</th>
+
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let clt of clientes">
+                    <td>{{clt.nombre}}</td>
+                    <td>{{clt.apellido}}</td>
+                    <td>{{clt.direccion}}</td>
+                    <td><a data-accion="editar" class="btn-normal-min" href="1"><i class="fa fa-cogs" aria-hidden="true"></i></a><a data-accion="eliminar" class="btn-normal-min" href="1"><i class="fa fa-trash" aria-hidden="true"></i></a><a data-accion="imprimir" class="btn-normal-min" href="1"><i class="fa fa-print" aria-hidden="true"></i></a></td>
+                  </tr>
+
+
+                </tbody>
+
+              </table>
+
+              <div class="control-container">
+                <a id="f-l" class="f-derecha" href=""><i class="fa fa-fast-backward" aria-hidden="true"></i></a>
+                <a id="f-l-all" class="f-derecha" href=""><i class="fa fa-backward" aria-hidden="true"></i></a>
+                <div class="ctrl">
+
+                </div>
+                <a id="f-r-all" class="f-izquierda" href=""><i class="fa fa-forward" aria-hidden="true"></i></a>
+                <a id="f-r" class="f-izquierda" href=""><i class="fa fa-fast-forward" aria-hidden="true"></i></a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+
+
+      </div>
+
+    </div>
+
+
+
+  </div>
+
+
+
+</div>

@@ -1,0 +1,25 @@
+<div class="board">
+  <div class="pen-title">
+    <h2>Desarrolladora de software Independiente</h2>
+    <h1>RARESOFT ENTERPRISES</h1><span>Design <i class='fa fa-paint-brush'></i> + <i class='fa fa-code'></i> by <a href='http://www.facebook.com/suijetsu.lee'>REDHADWARE</a></span>
+  </div>
+
+  <div class="module form-module">
+    <div class="toggle">
+      <i class="fa fa-times fa-pencil"></i>
+    </div>
+    <div class="form">
+      <h2>Logeo a tu cuenta</h2>
+      <form (submit)="logear($event)" id="logon">
+        <input id="txt_ussername" [(ngModel)]="username" name="txt_ussername" type="text" placeholder="Username" />
+        <input id="txt_password" [(ngModel)]="pass" name="txt_password" type="password" placeholder="Password" />
+        <input type="submit" class="btn_go" id="btn_go" name="btn_go" value="Login" />
+        <div *ngIf="condition==true" style="color:red">Error al iniciar secion</div>
+      </form>
+    </div>
+    <div class="cta"><a href="http://www.facebook.com/suijetsu.lee">Contac us</a></div>
+  </div>
+</div>
+
+
+

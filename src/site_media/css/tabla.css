@@ -1,0 +1,164 @@
+*{
+  padding: 0;
+  margin: 0;
+}
+
+.table-container{
+
+  cursor: pointer;
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  -webkit-user-select: none; /* Chrome, Opera, Safari */
+    -moz-user-select: none; /* Firefox 2+ */
+    -ms-user-select: none; /* IE 10+ */
+    user-select: none; /* Standard syntax */
+  
+}
+
+.table-container > table{
+  border-collapse: collapse;
+  width: 100%;
+}
+
+  .table-container > table th {
+    color:white;
+    background-color: #29ABE2;
+    border-bottom: 0.1em solid #ECEEEF;
+    border-top: 0.01em solid #ECEEEF;
+    border-left: 0.1em solid #ECEEEF;
+    border-right: 0.1em solid #ECEEEF;
+ 
+    text-align: left;
+    padding: 0.3em 0 0.3em 0;
+    padding-top: 0.7em;
+    padding-bottom: 0.7em;
+    padding-left: 0.5em;
+  }
+
+.table-container > table tr{
+  border-bottom: 0.01em solid #ECECEF;
+  
+  
+  text-align: left;
+  
+}
+
+.table-container > table td{
+  border-left: 0.1em solid #DDE2DF;
+  border-right: 0.1em solid #DDE2DF;
+  padding: 0.3em 0 0.3em 0;
+  padding-left: 0.5em;
+  font-size:15px;
+  color: gray;
+  
+}
+
+.table-container > table > tbody> tr:hover{
+  background-color: #F3F3F3;
+}
+.table-container > table tbody tr:nth-child(odd):hover {
+   background-color: #F3F3F3;
+}
+
+.table-container > table tbody tr:nth-child(odd) {
+   background-color: #F6F6F6;
+}
+
+
+.control-container {
+  
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+  margin-top:0.5em;
+  float:left;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 0.4em;
+  width: auto;
+  display: inline-flex;
+  border-bottom: 1px solid #ECEEEF;
+}
+
+  .control-container > .f-derecha {
+    float: left;
+    border: 1px solid #e5e5e5;
+    border-top-left-radius: 25%;
+    border-bottom-left-radius: 25%;
+    background-color: #f3f3f3;
+    color: gray;
+    font-size: 0.8em;
+    text-decoration: none;
+    padding-top: 0.4em;
+    padding-left: 0.4em;
+    padding-right: 0.4em;
+    padding-bottom: 0.2em;
+    text-align: center;
+    
+  }
+
+.control-container > .f-derecha-post {
+    float: left;
+    border: 1px solid #e5e5e5;
+    background-color: #f3f3f3;
+    color: gray;
+    font-size: 0.8em;
+    text-decoration: none;
+    padding-top: 0.4em;
+    padding-right: 0.4em;
+    padding-left: 0.4em;
+    padding-bottom: 0.2em;
+    text-align: center;
+  }
+.control-container > .f-izquierda {
+    float: left;
+    border: 1px solid #e5e5e5;
+    background-color: #f3f3f3;
+    font-size: 0.8em;
+    border-top-right-radius: 25%;
+    border-bottom-right-radius: 25%;
+    color: gray;
+    text-decoration: none;
+    padding-top: 0.4em;
+    padding-right: 0.4em;
+    padding-left: 0.4em;
+    padding-bottom: 0.2em;
+    text-align: center;
+    margin-right: 1em;
+  }
+
+.control-container > .f-izquierda-post {
+    float: left;
+    font-size: 0.8em;
+    border: 1px solid #e5e5e5;
+    background-color: #f3f3f3;
+    color: gray;
+    text-decoration: none;
+    padding-top: 0.4em;
+    padding-right: 0.4em;
+    padding-left: 0.4em;
+    padding-bottom: 0.2em;
+    text-align: center;
+  }
+
+.control-container > .ctrl{
+  
+  float: left;
+  background-color: red;
+  text-align: center;
+  
+  
+  
+  
+}
+
+  .control-container > .ctrl > a {
+    cursor: pointer;
+    margin: 10em;
+    float: left;
+    text-decoration: none;
+    background-color: #f3f3f3;
+    padding-top: 0.3em;
+    color: gray;
+    width: 1.9em;
+    height: 1.5em;
+    border: 1px solid #e5e5e5;
+    margin: 0 auto;
+  }

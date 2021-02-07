@@ -1,0 +1,55 @@
+<header>
+  <nav class="nav-bar">
+    <div class="banner">
+      <img class="pjX" src="assets/logo.png">
+    </div>
+    <div class="contentheader">
+      {{title}}
+    </div>
+
+    <div class="button-close">
+      <a id="btn-logout" class="fa fa-power-off" aria-hidden="true"></a>
+    </div>
+  </nav>
+</header>
+
+<div class="vertical-container">
+
+
+  <div class="menu-header">
+    <div class="credenciales col-10">
+      <div class="fotorea col-3">
+        <img id="picarea" class="picarea" src="assets/andromon.jpg">
+      </div>
+      <div class="textarea col-7">
+        <h1 id="Usuariospan">Richi BPinargote</h1>
+        <h2>Administrador</h2>
+      </div>
+    </div>
+
+  </div>
+  <div class="menu-area style-4">
+    <div id="wrapper">
+      <ul class="menu">
+        <li id="{{clt.nombre_descripcion}}" *ngFor="let clt of traerporNivel(1);let indice=index">
+          <a href="#"><span><i class="{{clt.icono}}" aria-hidden="true"></i></span>{{clt.nombre}}</a>
+          <ul>
+            <li id="{{clt_2.nombre_descripcion}}" *ngFor="let clt_2 of traerporPadre(clt.id)">
+              <a href="#"><i class="{{clt_2.icono}}" aria-hidden="true"></i>{{clt_2.nombre}}</a>
+              <ul>
+                <li id="{{clt_3.nombre_descripcion}}" *ngFor="let clt_3 of traerporPadre(clt_2.id)">
+                  <a href="#"><i class="{{clt_3.icono}}" aria-hidden="true"></i>{{clt_3.nombre}}</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          
+          {{initialJS(indice)}}
+        </li>
+        
+      </ul>
+
+    </div>
+  </div>
+</div>
+

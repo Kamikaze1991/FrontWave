@@ -1,0 +1,345 @@
+
+<app-nav-menu customTitle="mrecursoshumanos"></app-nav-menu>
+
+
+<div class="container">
+  <div id="frm" class="cellspace">
+    <div class="ch">
+      <div class="tx">Administracion de Empleados</div>
+    </div>
+    <form #formSave="ngForm" autocomplete="off" (ngSubmit)="actionSubmit(formSave)" id="frm_current" class="formspace">
+
+      
+
+
+      <div class="frm-container">
+        <div class="frm-container-header">
+          Datos Personales
+        </div>
+        <div class="frm-container-body">
+          <div class="col-5">
+            <div class="controlplus">
+              <label class="col-3">Identificador</label>
+              <div class="ctl col-7">
+                <input type="text" (focusout)="TriggerPersona($event)" name="identificador" #identificador="ngModel" [(ngModel)]="_persona.identificador" spellcheck="false" maxlength="100" autocomplete="off" required />
+                <div class="alerta" *ngIf="!identificador.valid&&validacion">
+                  Revise bien la informacion por favor
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-5">
+            <div class="controlplus">
+              <label class="col-3">Apodo</label>
+              <div class="ctl col-7">
+                <input type="text" #alias="ngModel" id="alias" name="alias" [(ngModel)]="_persona.alias" spellcheck="false" maxlength="100" autocomplete="off" required />
+                <div class="alerta" *ngIf="!alias.valid&&validacion">
+                  Revise bien la informacion por favor
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-5">
+            <div class="controlplus">
+              <label class="col-3">Razon Social</label>
+              <div class="ctl col-7">
+                <input type="text" #razon_social="ngModel" id="razon_social" name="razon_social" [(ngModel)]="_persona.razon_social" spellcheck="false" autocorrect="off" maxlength="100" autocomplete="off" required>
+                <div class="alerta" *ngIf="!razon_social.valid&&validacion">
+                  Revise bien la informacion por favor
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-5">
+            <div class="controlplus">
+              <label class="col-3">Nombres</label>
+              <div class="ctl col-7">
+                <input type="text" #nombre="ngModel" id="nombre" name="nombre" [(ngModel)]="_persona.nombre" spellcheck="false" maxlength="100" autocomplete="off" required>
+                <div class="alerta" *ngIf="!nombre.valid&&validacion">
+                  Revise bien la informacion por favor
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-5">
+            <div class="controlplus">
+              <label class="col-3">Apellidos</label>
+              <div class="ctl col-7">
+                <input type="text" #apellido="ngModel" id="apellido" name="apellido" [(ngModel)]="_persona.apellido" spellcheck="false" maxlength="100" autocomplete="off" required>
+                <div class="alerta" *ngIf="!apellido.valid&&validacion">
+                  Revise bien la informacion por favor
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-5">
+            <div class="controlplus">
+              <label class="col-3">Telefono Principal</label>
+              <div class="ctl col-7">
+                <input type="text" #telefono_principal="ngModel" id="telefono_principal" name="telefono_principal" [(ngModel)]="_persona.telefono_principal" spellcheck="false" maxlength="100" autocomplete="off" required>
+                <div class="alerta" *ngIf="!telefono_principal.valid&&validacion">
+                  Revise bien la informacion por favor
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-5">
+            <div class="controlplus">
+              <label class="col-3">Latitud</label>
+              <div class="ctl col-7">
+                <input type="text" #posx="ngModel" id="posx" name="posx" [(ngModel)]="_persona.posx" spellcheck="false" maxlength="100" autocomplete="off" required>
+                <div class="alerta" *ngIf="!posx.valid&&validacion">
+                  Revise bien la informacion por favor
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-5">
+            <div class="controlplus">
+              <label class="col-3">Longitud</label>
+              <div class="ctl col-7">
+                <input type="text" #posy="ngModel" id="posy" name="posy" [(ngModel)]="_persona.posy" spellcheck="false" maxlength="100" autocomplete="off" required>
+                <div class="alerta" *ngIf="!posy.valid&&validacion">
+                  Revise bien la informacion por favor
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <div class="col-10">
+            <div class="controlplus">
+              <label class="col-1-5-pad">Direccion Principal</label>
+              <div class="col-8-5">
+
+                <textarea id="direccion_principal" #direccion_principal="ngModel" name="direccion_principal" [(ngModel)]="_persona.direccion_principal" spellcheck="false" maxlength="100" autocomplete="off" required rows="4"></textarea>
+                <div class="alerta" *ngIf="!direccion_principal.valid&&validacion">
+                  Revise bien la informacion por favor
+                </div>
+
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+
+
+
+      </div>
+
+      <div class="frm-container">
+        <div class="frm-container-header">
+          Datos de usuario
+        </div>
+        <div class="frm-container-body col-10">
+          <div class="col-10">
+            <div class="controlplus">
+              <label class="col-1-5">Nombre de Usuario</label>
+              <div class="ctl col-8-5">
+                <input type="text" #username="ngModel" id="username" name="username" [(ngModel)]="_usuario.username" spellcheck="false" maxlength="100" autocomplete="false" required />
+                <div class="alerta" *ngIf="!username.valid&&validacion">
+                  Revise bien la informacion por favor
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-10">
+            <div class="controlplus">
+              <label class="col-1-5">Contraseña</label>
+              <div class="ctl col-8-5">
+
+                <input type="password" #password="ngModel" id="password" name="password" [(ngModel)]="_usuario.password" spellcheck="false" maxlength="100" autocomplete="new-password" required />
+                <div class="alerta" *ngIf="!password.valid&&validacion">
+                  Revise bien la informacion por favor
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-10">
+
+            <div class="controlplus">
+              <label class="col-1-5">Rol</label>
+              <div class="ctl col-8-5">
+                <select id="rol" name="rol" [(ngModel)]="_rol.id">
+                  <option *ngFor="let item_rol of roles" value="{{item_rol.id}}">
+                    {{item_rol.nombre}}
+                  </option>
+
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="col-10">
+            <div class="controlplus">
+              <label class="col-1-5">Path</label>
+              <div class="ctl col-8-5">
+                <input type="text" #path="ngModel" id="path" name="path" [(ngModel)]="_usuario.path" spellcheck="false" maxlength="100" autocomplete="off" required />
+                <div class="alerta" *ngIf="!path.valid&&validacion">
+                  Revise bien la informacion por favor
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+
+        </div>
+
+
+
+
+
+      </div>
+
+
+      <div class="frm-container">
+        <div class="frm-container-header">
+          Informacion del empleado
+        </div>
+        <div class="frm-container-body col-10">
+          <div class="col-10">
+            <div class="controlplus">
+              <label class="col-1-5">Rendimiento</label>
+              <div class="ctl col-8-5">
+                <input type="text" #rendimiento="ngModel" id="rendimiento" name="rendimiento" [(ngModel)]="_empleado.rendimiento" spellcheck="false" maxlength="100" autocomplete="off" required />
+                <div class="alerta" *ngIf="!rendimiento.valid&&validacion">
+                  Revise bien la informacion por favor
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
+
+
+
+        </div>
+        <div class="frm-container-footer">
+          <button id="btn_save" type="submit" class="btn-info"><i class="fa fa-floppy-o" aria-hidden="true"></i> Guardar</button>
+          <button id="btn_clear" (click)="limpiar()" type="button" class="btn-normal"><i class="fa fa-file-o" aria-hidden="true"></i></button>
+        </div>
+
+
+
+
+
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <!--area de controles de accion-->
+      <div class="col-10 control-container-x">
+
+      </div>
+    </form>
+
+
+
+
+  </div>
+  <div id="frm" class="cellspace">
+    <div class="ch">
+      <div class="tx">Gestor de Informacion</div>
+    </div>
+    <div class="formspace">
+      <div style="min-height:41em;height:auto;" class="frm-container">
+        <div class="frm-container-header">
+          Clientes
+        </div>
+        <div class="frm-container-body col-10">
+          <form id="frm_filtro" class="innercellspace col-10">
+
+            <div class="col-3">
+              <div class="control">
+                <label>Parametro</label>
+                <input type="text" id="filtro" maxlength="100" autocomplete="off">
+                <span>Busqueda</span>
+              </div>
+            </div>
+
+
+            <button id="btn_proveedor_seek" type="submit" class="hidden"><i class="fa fa-hourglass-end" aria-hidden="true"></i></button>
+
+          </form>
+          <div  style="background-color:#ECEDEF; min-height:27em;height:auto" class="col-10">
+
+            <div  style="background-color:white" class="table-container">
+
+              <table id="tbl_result">
+                <thead>
+                  <tr>
+                    <th class="Rcedula" id="hcedula">Cedula</th>
+                    <th class="Rrazon_social" id="hrazon_social">Razon Social</th>
+                    <th class="Rnombre" id="hnombre">nombre</th>
+                    <th class="Rapellido" id="hapellido">apellido</th>
+                    <th class="Rrendimiento" id="hrendimiento">direccion</th>
+                    <th class="Rusuario" id="husuario">Usuario</th>
+                    <th class="Rcontroles" id="hcontroles">Controles</th>
+
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let clt of lista_empleados_consolidado">
+                    <td>{{clt.identificador}}</td>
+                    <td>{{clt.razon_social}}</td>
+                    <td>{{clt.nombre}}</td>
+                    <td>{{clt.apellido}}</td>
+                    <td>{{clt.direccion}}</td>
+                    <td>{{clt.username}}</td>
+
+                    <td><a data-accion="editar" (click)="registroGo(clt.id)" class="btn-normal-min"><i class="fa fa-cogs" aria-hidden="true"></i></a><a data-accion="eliminar" (click)="deleteGo(clt.id)" class="btn-normal-min" href="1"><i class="fa fa-trash" aria-hidden="true"></i></a><a data-accion="imprimir" class="btn-normal-min" href="1"><i class="fa fa-print" aria-hidden="true"></i></a></td>
+                  </tr>
+
+
+                </tbody>
+
+              </table>
+            </div>
+            
+
+          </div>
+          <div class="col-10">
+            <div class="control-container">
+              <a id="f-l" class="f-derecha" (click)="paginaGo(previusAll)"><i class="fa fa-fast-backward" aria-hidden="true"></i></a>
+              <a id="f-l-all" class="f-derecha-post" (click)="paginaGo(previus)"><i class="fa fa-backward" aria-hidden="true"></i></a>
+              <div class="ctrl" *ngFor="let clt of paginas">
+                <a *ngIf="clt==pagina_actual" style="background-color:#29ABE2;color:white" (click)="paginaGo(clt)">{{clt}}</a>
+                <a *ngIf="clt!=pagina_actual" (click)="paginaGo(clt)">{{clt}}</a>
+              </div>
+              <a id="f-r-all" class="f-izquierda-post" (click)="paginaGo(next)"><i class="fa fa-forward" aria-hidden="true"></i></a>
+              <a id="f-r" class="f-izquierda" (click)="paginaGo(nextAll)"><i class="fa fa-fast-forward" aria-hidden="true"></i></a>
+            </div>
+          </div>
+
+        </div>
+
+
+
+      </div>
+
+    </div>
+
+
+
+  </div>
+
+
+
+</div>
+

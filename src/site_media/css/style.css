@@ -1,0 +1,80 @@
+@media (max-width: 600px) {
+	
+	
+	
+	thead {
+		position: absolute;
+		left: -9999px;
+		overflow: hidden;
+		width: 0px;
+		height: 0px;
+		
+	}	
+	
+	tr, td, th, thead, tbody, table {
+		display: block;
+	}
+	
+	tbody tr:nth-child(2n+1) {
+		background-color: goldenrod;
+		
+	}
+	
+	tbody tr td::before {
+		display: inline-block;
+		width: 25%;
+		min-width: 100px;
+		border-right: 2px dotted #999;
+		margin-right: 10px;
+		font-weight: bold;
+		
+	}	
+	
+
+		tbody tr td:nth-child(1)::before {
+		content: "Name";
+	}
+	
+	tbody tr td:nth-child(2)::before {
+		content: "Age";
+	}
+	
+	tbody tr td:nth-child(3)::before {
+		content: "Color";
+	}	
+	
+	tbody tr td:nth-child(4)::before {
+		content: "Sex";
+	}	
+
+	tbody tr td:nth-child(5)::before {
+		content: "Alive?";
+	}
+
+}
+
+/* just some styling */
+
+body {
+	font: 150%/1.6 Helvetica Neue, sans-serif;
+	
+}
+
+table {
+	border-spacing: 0;
+	border-collapse: collapse;
+}
+
+td, th {
+	padding: 0 .3em;
+	white-space: nowrap;
+}
+
+td {
+	border: 1px solid rgba(0,0,0,.1);
+}
+
+tbody tr:nth-child(2n+1) {
+	background-color: goldenrod;
+		
+}

@@ -1,0 +1,136 @@
+
+.cnt{
+  margin-left: 1em;
+  margin-bottom: 1em;
+}
+
+button {
+
+  
+  outline: none;
+  height: 40px;
+  text-align: center;
+  width: 130px;
+  border-radius: 40px;
+  background: #fff;
+  border: 2px solid #1ECD97;
+  color: #1ECD97;
+  letter-spacing: 1px;
+  text-shadow: 0;
+  font-size: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  -webkit-transition: all 0.25s ease;
+  transition: all 0.25s ease;
+
+  
+}
+button:hover {
+  color: white;
+  background: #1ECD97;
+}
+button:active {
+  letter-spacing: 2px;
+  -moz-user-select: none;
+  outline: none;
+
+}
+button:after {
+  content: "SUBMIT";
+}
+
+.onclic {
+  width: 40px;
+
+  border-color: #bbbbbb;
+  border-width: 3px;
+  font-size: 0;
+  border-left-color: #1ECD97;
+
+  
+}
+
+.stoped {
+  -webkit-animation: none;
+          animation: none;
+}
+
+.begin {
+  -webkit-animation: rotating 1s 0.25s linear infinite;
+          animation: rotating 1s 0.25s linear infinite;
+}
+.onclic:after {
+  content: "";
+}
+.onclic:hover {
+  color: #1ECD97;
+  background: white;
+}
+
+.validate {
+  font-size: 13px;
+  color: white;
+  background: #1ECD97;
+  font-size: 12px;
+  font-weight: bold;
+}
+.validate:after {
+  font-family: 'FontAwesome';
+  content: "SUCESS";
+}
+
+.invalidate {
+  
+  color: red;
+  background: white;
+  border: 2px solid red;
+  font-size: 12px;
+  font-weight: bold;
+}
+.invalidate:after {
+  font-family: 'FontAwesome';
+  content: "X";
+}
+.invalidate:hover {
+  color: white;
+  background: red;
+}
+
+
+
+button::-moz-focus-inner, input[type="button"]::-moz-focus-inner
+    {   
+        border : 0px;
+    } 
+/*for IE8 */
+    button:focus, input[type="button"]:focus
+    {     
+        outline : none; 
+    }
+
+
+
+@-webkit-keyframes rotating {
+  from {
+
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes rotating {
+  from {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+
