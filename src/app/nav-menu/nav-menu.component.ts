@@ -61,21 +61,6 @@ export class NavMenuComponent {
 
   ngOnInit() {
    
-    console.log("el custom tittle es"+ this.customTitle);
-    this.menuApi.traertodo().then(succ => {
-      console.log(succ);
-      console.log("imprimiendo");
-      console.log(this.menus);
-
-      for (let prop in succ) {
-        let mnu = new Menuprincipal().fromJson(succ[prop])
-        this.menus.push(mnu);
-      }
-
-      
-    }).catch(succ => {
-      console.log("error")
-      }); 
   }
 
 
@@ -87,7 +72,7 @@ export class NavMenuComponent {
 
   initialJS(indice) {
     
-    console.log(indice);
+    console.log("prueba---"+indice);
     if (!this.sw && indice==1) {
       
       console.log("CARGA1")

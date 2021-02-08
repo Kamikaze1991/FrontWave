@@ -1,33 +1,23 @@
 export class Usuario {
-  public id: Number
-  public id_rol: Number
-  public identificador: String 
-  public username: String 
-  public password: String
-  public path: String 
-  public fecha_creacion: String
-  public fecha_modificacion: String
-
+  public us_id_usuario: Number
+  public us_login: String
+  public us_password: String 
+  public us_fecha_creacion: String 
+  public us_fecha_modificacion: String
   
   constructor() {
-    this.id = 0
-    this.id_rol = 0
-    this.identificador = ""
-    this.username = ""
-    this.password = ""
-    this.path = ""
-    this.fecha_creacion = ""
-    this.fecha_modificacion=""
+    this.us_id_usuario = 0
+    this.us_login =""
+    this.us_password = ""
+    this.us_fecha_creacion = ""
+    this.us_fecha_modificacion = ""
   }
   public fromJson(data: any) {
-    this.id = data.id
-    this.id_rol = data.id_rol
-    this.identificador = data.identificador
-    this.username = data.username
-    this.password = data.password
-    this.path = data.path
-    this.fecha_creacion = data.fecha_creacion
-    this.fecha_modificacion = data.fecha_modificacion
+    this.us_id_usuario = data.us_id_usuario
+    this.us_login = data.us_login
+    this.us_password = data.us_password
+    this.us_fecha_creacion = data.us_fecha_creacion
+    this.us_fecha_modificacion = data.us_fecha_modificacion
     return this
   }
 }

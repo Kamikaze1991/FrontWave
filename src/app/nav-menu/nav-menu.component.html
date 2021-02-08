@@ -28,28 +28,50 @@
     </div>
 
   </div>
+
   <div class="menu-area style-4">
     <div id="wrapper">
-      <ul class="menu">
-        <li id="{{clt.nombre_descripcion}}" *ngFor="let clt of traerporNivel(1);let indice=index">
-          <a href="#"><span><i class="{{clt.icono}}" aria-hidden="true"></i></span>{{clt.nombre}}</a>
-          <ul>
-            <li id="{{clt_2.nombre_descripcion}}" *ngFor="let clt_2 of traerporPadre(clt.id)">
-              <a href="#"><i class="{{clt_2.icono}}" aria-hidden="true"></i>{{clt_2.nombre}}</a>
-              <ul>
-                <li id="{{clt_3.nombre_descripcion}}" *ngFor="let clt_3 of traerporPadre(clt_2.id)">
-                  <a href="#"><i class="{{clt_3.icono}}" aria-hidden="true"></i>{{clt_3.nombre}}</a>
-                </li>
-              </ul>
+        <ul class="menu">
+            <li id="mmembership"><a href="#"><span><i class="fa fa-address-book-o" aria-hidden="true"></i></span> Inventario</a>
+                <ul>
+                    <li id="mcliente" ><a href="#"><i class="fa fa-handshake-o" aria-hidden="true"></i>Productos</a>
+                        <ul>
+                           <li><a href="/cliente-admin"><i class="fa fa-briefcase" aria-hidden="true"></i>Administracion</a></li>
+                           <li><a href="/T-1997/cliente/cliente_ingreso"><i class="fa fa-pencil" aria-hidden="true"></i>Ingreso</a></li>
+                         <li><a href="#"><i class="fa fa-print" aria-hidden="true"></i>Reportes</a></li>
+                        </ul>
+                    </li>
+                </ul>
             </li>
-          </ul>
-          
-          {{initialJS(indice)}}
-        </li>
-        
-      </ul>
 
+            <li id="mtransaccion"><a href="#"><i class="fa fa-cogs" aria-hidden="true"></i>Transacciones</a>
+                <ul>
+                    <li id="mproducto"><a href="#"><i class="fa fa-rocket" aria-hidden="true"></i>Productos</a>
+                        <ul>
+                            <li><a href="/T-1997/producto/producto_admin"><i class="fa fa-briefcase" aria-hidden="true"></i>Administracion general</a></li>
+                            <li><a href="#"><i class="fa fa-address-book-o" aria-hidden="true"></i>Reportes</a></li>
+                        </ul>
+                    </li>
+                    <li id="mcompra"><a href="#"><i class="fa fa-credit-card" aria-hidden="true"></i>Compras</a>
+                        <ul>
+                            <li><a href="/T-1997/compra/compra_admin"><i class="fa fa-briefcase" aria-hidden="true"></i>Administracion general</a></li>
+                            <li><a href="/T-1997/compra/compra_informe"><i class="fa fa-address-book-o" aria-hidden="true"></i>Reportes</a></li>
+                        </ul>
+                    </li>
+                    <li id="mventa"><a href="#"><i class="fa fa-area-chart" aria-hidden="true"></i>Ventas</a>
+                        <ul>
+                            <li><a href="/T-1997/venta/venta_admin"><i class="fa fa-briefcase" aria-hidden="true"></i>Administracion general</a></li>
+                            <li><a href="/T-1997/venta/venta_informe"><i class="fa fa-address-book-o" aria-hidden="true"></i>Reportes</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            
+            
+            
+        </ul>
+       
     </div>
-  </div>
 </div>
-
+</div>
+{{initialJS(1)}}

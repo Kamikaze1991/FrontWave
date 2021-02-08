@@ -1,9 +1,11 @@
 import { Component, OnInit, ElementRef } from '@angular/core';
 import { EmpleadoApiService } from '../../services/empleado-api.service';
+import { ProductoApiService } from '../../services/producto-api.service';
 import { RolApiService } from '../../services/rol-api.service';
 import { PersonaApiService } from '../../services/persona-api.service';
 import { Persona } from '../../models/persona'
 import { Empleado } from '../../models/empleado'
+import { Producto } from '../../models/producto'
 import { Usuario } from '../../models/usuario'
 import { Rol } from '../../models/rol'
 import { Empleadoconsolidado } from '../../models/empleadoconsolidado'
@@ -12,13 +14,13 @@ import { Cliente } from '../../models/cliente';
 import { FormBuilder, FormGroup, Validators, NgForm } from '@angular/forms';
 
 @Component({
-  selector: 'app-empleado-admin',
-  templateUrl: './empleado-admin.component.html',
-  styleUrls: ['./empleado-admin.component.css']
+  selector: 'app-producto-admin',
+  templateUrl: './producto-admin.component.html',
+  styleUrls: ['./producto-admin.component.css']
 })
 
 
-export class EmpleadoComponent implements OnInit {
+export class ProductoComponent implements OnInit {
 
   myForm: FormGroup;
 
@@ -39,6 +41,7 @@ export class EmpleadoComponent implements OnInit {
 
   public roles=[]
   public _empleado = new Empleado();
+  public _producto = new Producto();
   public _usuario = new Usuario();
   public _persona = new Persona();
   public _rol = new Rol();
@@ -47,6 +50,7 @@ export class EmpleadoComponent implements OnInit {
 
   constructor(public empleadoSVC: EmpleadoApiService,
     public rolSVC: RolApiService,
+    public productoSVC: ProductoApiService,
     public personaSVC: PersonaApiService, public fb: FormBuilder) {
     this.myForm = this.fb.group({
       identificador: ['', [Validators.required]],
@@ -71,6 +75,7 @@ export class EmpleadoComponent implements OnInit {
   limpiar() {
     this.validacion = false;
     this._empleado = new Empleado();
+    this._producto = new Producto();
     this._persona = new Persona();
     this._rol = new Rol();
     this._usuario = new Usuario();
@@ -234,22 +239,26 @@ export class EmpleadoComponent implements OnInit {
   }
 
   consultapaginada(a, b) {
+    
     this.lista_empleados_consolidado = [];
     this.paginas = []
     $("#tbl_result").css('display', 'none');
     $(".control-container").css('display', 'none');
     
-    this.empleadoSVC.traerPaginado(a, b).then(succ => {
-      if (succ["tuplas"]) {
+    this.productoSVC.traertodo().then(succ => {
+      if (succ) {
+        console.log(succ);
         let pag = succ["paginas"]
         let curr = succ["current"]
         this.pagina_actual = curr;
-        for (let item in succ["tuplas"]) {
-          console.log()
-          let tupla = new Empleadoconsolidado().fromJson(succ["tuplas"][item])
+        for (let item in succ) {
+          console.log("**-*-*--*--*-*-*")
+          console.log(item)
+          console.log("**-*-*--*--*-*-*")
+          let tupla = new Producto().fromJson(succ[item])
           this.lista_empleados_consolidado.push(tupla)
         }
-
+        console.log("**-*-*--*--*-*-*")
         if (curr > 0) {
           this.paginas.push(curr - 1)
           this.previus = curr - 1;
@@ -264,8 +273,7 @@ export class EmpleadoComponent implements OnInit {
           if (i < pag)
             this.paginas.push(i)
         }
-        console.log(this.lista_empleados_consolidado)
-        console.log(this.paginas)
+     
       }  
       $('#tbl_result').fadeIn();
       $('.control-container').fadeIn();

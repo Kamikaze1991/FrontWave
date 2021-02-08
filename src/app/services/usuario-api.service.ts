@@ -9,12 +9,14 @@ export class UsuarioApiService {
 
   login(uname: String, pass: String) {
 
-    let url = AppSettings.API_ENDPOINT+"/api/Usuario/autenticar"
+    let url = AppSettings.API_ENDPOINT+"/api/usuario/login"
 
+    var nodeRequest=new Object
+    
     var request = new Object
-    request['username'] = uname
-    request['password'] = pass
-
+    request['us_login'] = uname
+    request['us_password'] = pass
+    nodeRequest['usuario']=request;
 
     const httpOptions = {
       headers: new HttpHeaders({
@@ -22,9 +24,11 @@ export class UsuarioApiService {
       })
     }
 
+    
+
     return new Promise((res, rej) => {
-      this.http.post(url, request, httpOptions).subscribe(done => {
-        res(done)
+      this.http.post(url, nodeRequest, httpOptions).subscribe(done => {
+        res(done);
       },
         err => {
           res(null)

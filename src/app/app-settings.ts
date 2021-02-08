@@ -1,4 +1,4 @@
 export class AppSettings {
-  public static get API_ENDPOINT(): string { return 'http://localhost:3439'; }
+  public static get API_ENDPOINT(): string { return 'http://localhost:8080/MAMUT-PRO-REST'; }
   
 }

@@ -1,0 +1,149 @@
+
+<app-nav-menu customTitle="mrecursoshumanos"></app-nav-menu>
+
+
+<div class="container">
+  <div id="frm" class="cellspace">
+    <div class="ch">
+      <div class="tx">Administracion de Productos</div>
+    </div>
+    <form #formSave="ngForm" autocomplete="off" (ngSubmit)="actionSubmit(formSave)" id="frm_current" class="formspace">
+      <div class="frm-container">
+        <div class="frm-container-header">
+          Datos de producto
+        </div>
+        <div class="frm-container-body col-10">
+          <div class="col-10">
+            <div class="controlplus">
+              <label class="col-1-5">Nombre Del producto</label>
+              <div class="ctl col-8-5">
+                <input type="text" #username="ngModel" id="username" name="username" [(ngModel)]="_usuario.username" spellcheck="false" maxlength="100" autocomplete="false" required />
+                <div class="alerta" *ngIf="!username.valid&&validacion">
+                  Revise bien la informacion por favor
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-10">
+            <div class="controlplus">
+              <label class="col-1-5">Precio</label>
+              <div class="ctl col-8-5">
+
+                <input type="password" #password="ngModel" id="password" name="password" [(ngModel)]="_usuario.password" spellcheck="false" maxlength="100" autocomplete="new-password" required />
+                <div class="alerta" *ngIf="!password.valid&&validacion">
+                  Revise bien la informacion por favor
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-10">
+
+            <div class="controlplus">
+              <label class="col-1-5">Descripcion</label>
+              <div class="ctl col-8-5">
+                <select id="rol" name="rol" [(ngModel)]="_rol.id">
+                  <option *ngFor="let item_rol of roles" value="{{item_rol.id}}">
+                    {{item_rol.nombre}}
+                  </option>
+
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--area de controles de accion-->
+      <div class="col-10 control-container-x">
+
+      </div>
+    </form>
+
+
+
+
+  </div>
+  <div id="frm" class="cellspace">
+    <div class="ch">
+      <div class="tx">Gestor de Informacion</div>
+    </div>
+    <div class="formspace">
+      <div style="min-height:41em;height:auto;" class="frm-container">
+        <div class="frm-container-header">
+          Clientes
+        </div>
+        <div class="frm-container-body col-10">
+          <form id="frm_filtro" class="innercellspace col-10">
+
+            <div class="col-3">
+              <div class="control">
+                <label>Parametro</label>
+                <input type="text" id="filtro" maxlength="100" autocomplete="off">
+                <span>Busqueda</span>
+              </div>
+            </div>
+
+
+            <button id="btn_proveedor_seek" type="submit" class="hidden"><i class="fa fa-hourglass-end" aria-hidden="true"></i></button>
+
+          </form>
+          <div  style="background-color:#ECEDEF; min-height:27em;height:auto" class="col-10">
+
+            <div  style="background-color:white" class="table-container">
+
+              <table id="tbl_result">
+                <thead>
+                  <tr>
+                    <th class="RidProducto" id="hidProducto">Id Producto</th>
+                    <th class="Rnombre" id="hnombre">Nombre</th>
+                    <th class="Rdescripcion" id="hdescripcion">Descripcion</th>
+                    <th class="Rpreciobase" id="hpreciobase">Precio Base</th>
+                   
+
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let clt of lista_empleados_consolidado">
+                    <td>{{clt.pr_id_producto}}</td>
+                    <td>{{clt.pr_nombre}}</td>
+                    <td>{{clt.pr_descripcion}}</td>
+                    <td>{{clt.pr_precio_base}}</td>
+                    <td><a data-accion="editar" (click)="registroGo(clt.id)" class="btn-normal-min"><i class="fa fa-cogs" aria-hidden="true"></i></a><a data-accion="eliminar" (click)="deleteGo(clt.id)" class="btn-normal-min" href="1"><i class="fa fa-trash" aria-hidden="true"></i></a><a data-accion="imprimir" class="btn-normal-min" href="1"><i class="fa fa-print" aria-hidden="true"></i></a></td>
+                  </tr>
+
+
+                </tbody>
+
+              </table>
+            </div>
+            
+
+          </div>
+          <div class="col-10">
+            <div class="control-container">
+              <a id="f-l" class="f-derecha" (click)="paginaGo(previusAll)"><i class="fa fa-fast-backward" aria-hidden="true"></i></a>
+              <a id="f-l-all" class="f-derecha-post" (click)="paginaGo(previus)"><i class="fa fa-backward" aria-hidden="true"></i></a>
+              <div class="ctrl" *ngFor="let clt of paginas">
+                <a *ngIf="clt==pagina_actual" style="background-color:#29ABE2;color:white" (click)="paginaGo(clt)">{{clt}}</a>
+                <a *ngIf="clt!=pagina_actual" (click)="paginaGo(clt)">{{clt}}</a>
+              </div>
+              <a id="f-r-all" class="f-izquierda-post" (click)="paginaGo(next)"><i class="fa fa-forward" aria-hidden="true"></i></a>
+              <a id="f-r" class="f-izquierda" (click)="paginaGo(nextAll)"><i class="fa fa-fast-forward" aria-hidden="true"></i></a>
+            </div>
+          </div>
+
+        </div>
+
+
+
+      </div>
+
+    </div>
+
+
+
+  </div>
+
+
+
+</div>
+
